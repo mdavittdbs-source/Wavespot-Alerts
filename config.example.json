@@ -1,0 +1,33 @@
+{
+  "slack_webhook_url": "$SLACK_WEBHOOK_URL",
+  "state_file": "wavespot_state.json",
+  "poll_interval_seconds": 120,
+  "max_lines": 15,
+
+  "source": {
+    "type": "http",
+    "url": "$WAVESPOT_API_URL",
+    "headers": { "Authorization": "Bearer $WAVESPOT_API_TOKEN" },
+    "list_path": "data",
+    "fields": {
+      "id": "id",
+      "name": "name",
+      "status": "status",
+      "kind": "type",
+      "site": "location.name"
+    },
+    "online_values": ["online", "true", "up", "connected", "1"],
+    "include_kinds": []
+  },
+
+  "alerting": {
+    "down_after_seconds": 300,
+    "down_after_polls": 2,
+    "recover_after_polls": 2,
+    "reminder_seconds": 3600,
+    "max_reminder_seconds": 86400,
+    "flap_threshold": 4,
+    "flap_window_seconds": 3600,
+    "forget_missing_after_seconds": 86400
+  }
+}

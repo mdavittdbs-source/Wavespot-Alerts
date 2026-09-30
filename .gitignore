@@ -1,0 +1,5 @@
+config.json
+wavespot_state.json
+.state-*
+__pycache__/
+*.log
