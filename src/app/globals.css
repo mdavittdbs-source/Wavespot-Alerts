@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  --brand: #1d4ed8;
+  --accent: #f59e0b;
+  --bg: #0b0d12;
+  --panel: #12151c;
+  --panel-2: #1a1e28;
+  --line: #262b37;
+  --text: #e8eaf0;
+  --muted: #9aa3b5;
+}
+
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition disabled:opacity-50 disabled:cursor-not-allowed;
+}
+.btn-primary { background: var(--brand); color: white; }
+.btn-primary:hover { filter: brightness(1.1); }
+.btn-ghost { background: var(--panel-2); color: var(--text); border: 1px solid var(--line); }
+.btn-ghost:hover { border-color: var(--muted); }
+.btn-accent { background: var(--accent); color: #111; }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+.input {
+  @apply w-full rounded-lg px-3 py-2 text-sm outline-none;
+  background: var(--panel-2); border: 1px solid var(--line); color: var(--text);
+}
+.input:focus { border-color: var(--brand); }
+.label { @apply block text-xs font-medium uppercase tracking-wide mb-1; color: var(--muted); }
+.muted { color: var(--muted); }
+.chip { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium; background: var(--panel-2); border: 1px solid var(--line); }
